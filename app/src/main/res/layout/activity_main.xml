@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme"
+    tools:context="com.danman.harsh.esphome.MainActivity"
+    android:background="#eeeeee">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="150dp"
+        android:id="@+id/backstatus"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:background="#ffffff" />
+
+    <TextView
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Power"
+        android:id="@+id/status_static"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_alignTop="@+id/backstatus"
+        android:layout_alignStart="@+id/backstatus" />
+
+    <TextView
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ON"
+        android:id="@+id/status"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_alignBottom="@+id/status_static"
+        android:layout_alignEnd="@+id/backstatus" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:text="Power"
+        android:id="@+id/power_sw"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/static_title"
+        android:layout_alignParentStart="true" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Timer"
+        android:id="@+id/timer_sw"
+        android:textSize="20dp"
+        android:layout_below="@+id/power_sw"
+        android:layout_alignStart="@+id/power_sw"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn on after"
+        android:paddingTop="15dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/timer_static"
+        android:textSize="17dp"
+        android:layout_below="@+id/timer_sw"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="min(s)"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:id="@+id/timer_mins_static"
+        android:textSize="17dp"
+        android:layout_alignTop="@+id/timer_min"
+        android:paddingRight="20dp"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:gravity="center"
+        android:id="@+id/timer_min"
+        android:textSize="17dp"
+        android:textIsSelectable="false"
+        android:width="50dp"
+        android:maxLength="2"
+        android:layout_marginEnd="70dp"
+        android:layout_alignTop="@+id/timer_static"
+        android:layout_alignParentEnd="true" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:text="Scheduler"
+        android:id="@+id/scheduler_sw"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/timer_min"
+        android:layout_alignStart="@+id/timer_static" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn on daily at"
+        android:paddingTop="15dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/scheduler1_static"
+        android:textSize="17dp"
+        android:gravity="center"
+        android:layout_below="@+id/scheduler_sw"
+        android:layout_alignStart="@+id/scheduler_sw" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn off daily at"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/scheduler2_static"
+        android:textSize="17dp"
+        android:gravity="center"
+        android:layout_below="@+id/scheduler1_static"
+        android:layout_alignStart="@+id/scheduler1_static" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLength="2"
+        android:ems="10"
+        android:id="@+id/scheduler_onh"
+        android:gravity="center"
+        android:width="40dp"
+        android:textSize="17dp"
+        android:paddingTop="20dp"
+        android:layout_above="@+id/scheduler2_static"
+        android:layout_alignStart="@+id/timer_min"
+        android:hint="hh" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:paddingTop="10dp"
+        android:hint="mm"
+        android:width="40dp"
+        android:maxLength="2"
+        android:textSize="17dp"
+        android:gravity="center"
+        android:ems="10"
+        android:id="@+id/scheduler_onm"
+        android:layout_above="@+id/scheduler2_static"
+        android:layout_toEndOf="@+id/textView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:paddingTop="10dp"
+        android:ems="10"
+        android:id="@+id/scheduler_offh"
+        android:gravity="center"
+        android:width="40dp"
+        android:textSize="17dp"
+        android:layout_alignBottom="@+id/scheduler2_static"
+        android:layout_alignStart="@+id/scheduler_onh"
+        android:hint="hh" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:paddingTop="20dp"
+        android:hint="mm"
+        android:width="40dp"
+        android:maxLength="2"
+        android:textSize="17dp"
+        android:gravity="center"
+        android:ems="10"
+        android:id="@+id/scheduler_offm"
+        android:layout_alignBottom="@+id/scheduler_offh"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OFF"
+        android:id="@+id/timer_status"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_above="@+id/scheduler_status"
+        android:layout_alignParentEnd="true" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change settings and press apply"
+        android:gravity="center"
+        android:id="@+id/static_title"
+        android:layout_below="@+id/backstatus"
+        android:elevation="10dp"
+        android:textSize="17dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="17dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Timer"
+        android:id="@+id/timerstatus_static"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_alignStart="@+id/backstatus"
+        android:layout_below="@+id/status_static" />
+
+    <TextView
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scheduler"
+        android:id="@+id/schedulerstatus_static"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_below="@+id/timerstatus_static"
+        android:layout_alignParentStart="true" />
+
+
+
+    <TextView
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OFF"
+        android:id="@+id/scheduler_status"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_alignBottom="@+id/schedulerstatus_static"
+        android:layout_alignEnd="@+id/timer_mins_static" />
+
+    <TextView
+        android:paddingTop="20dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OFF"
+        android:id="@+id/schedulerstatus1_static"
+        android:textColor="#ffffff"
+        android:textSize="10dp"
+        android:layout_alignBottom="@+id/scheduler_st_offtime"
+        android:layout_alignStart="@+id/schedulerstatus2_static" />
+
+    <TextView
+        android:paddingTop="20dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ON"
+        android:id="@+id/schedulerstatus2_static"
+        android:textColor="#ffffff"
+        android:textSize="10dp"
+        android:layout_alignBottom="@+id/scheduler_st_ontime"
+        android:layout_toStartOf="@+id/scheduler_st_ontime" />
+
+    <TextView
+        android:paddingTop="13dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OFFTIME"
+        android:id="@+id/scheduler_st_offtime"
+        android:textColor="#ffffff"
+        android:textSize="10dp"
+        android:layout_alignBottom="@+id/scheduler_status"
+        android:layout_toEndOf="@+id/schedulerstatus2_static" />
+
+    <TextView
+        android:paddingTop="10dp"
+        android:paddingRight="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ONTIME"
+        android:id="@+id/scheduler_st_ontime"
+        android:textColor="#ffffff"
+        android:textSize="10dp"
+        android:gravity="center"
+        android:layout_alignTop="@+id/scheduler_status"
+        android:layout_alignEnd="@+id/timer_min" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignBottom="@+id/button"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="APPLY"
+        android:gravity="center"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="10dp"
+        android:background="@anim/ripple"
+        android:clickable="true"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:shadowColor="#000000"
+        android:paddingBottom="10dp"
+        android:elevation="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:textSize="17dp"
+        android:text=":"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/scheduler_onh"
+        android:layout_toEndOf="@+id/scheduler_onh" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:text=":"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/scheduler_onh"
+        android:layout_toEndOf="@+id/scheduler_offh" />
+
+    <TextView
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SS"
+        android:id="@+id/secleft"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_below="@+id/status"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=":"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:id="@+id/seprator2"
+        android:layout_above="@+id/scheduler_status"
+        android:layout_toStartOf="@+id/secleft"
+        android:textColor="#ffffff"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="MM"
+        android:id="@+id/minleft"
+        android:layout_above="@+id/scheduler_status"
+        android:layout_toStartOf="@+id/seprator2"
+        android:textSize="25dp"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=":"
+        android:id="@+id/seprator1"
+        android:layout_above="@+id/scheduler_st_ontime"
+        android:layout_toStartOf="@+id/minleft"
+        android:textColor="#ffffff"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="HH"
+        android:id="@+id/hrleft"
+        android:layout_above="@+id/scheduler_st_ontime"
+        android:layout_toStartOf="@+id/seprator1"
+        android:textSize="25dp"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOADING. . ."
+        android:id="@+id/bgText"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/static_title"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Everyday"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/schdrepeat"
+        android:textSize="17dp"
+        android:gravity="center"
+        android:layout_below="@+id/scheduler_offh"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:paddingTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:layout_alignBottom="@+id/schdrepeat"
+        android:layout_alignEnd="@+id/scheduler_offm"
+        android:checked="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S"
+        android:button="@null"
+        android:id="@+id/checkBoxsun"
+        android:gravity="center"
+        android:background="@drawable/day_chooser"
+        android:checked="true"
+        android:layout_below="@+id/schdrepeat"
+        android:layout_alignEnd="@+id/timerstatus_static"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="M"
+        android:button="@null"
+        android:id="@+id/checkBoxmon"
+        android:gravity="center"
+        android:background="@drawable/day_chooser"
+        android:checked="true"
+        android:layout_below="@+id/schdrepeat"
+        android:layout_alignLeft="@+id/checkBoxsun"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="T"
+        android:button="@null"
+        android:id="@+id/checkBoxtue"
+        android:gravity="center"
+        android:background="@drawable/day_chooser"
+        android:checked="true"
+        android:layout_below="@+id/schdrepeat"
+        android:layout_alignLeft="@+id/checkBoxmon"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="W"
+        android:button="@null"
+        android:id="@+id/checkBoxwed"
+        android:gravity="center"
+        android:background="@drawable/day_chooser"
+        android:checked="true"
+        android:layout_below="@+id/schdrepeat"
+        android:layout_alignLeft="@+id/checkBoxtue"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="T"
+        android:button="@null"
+        android:id="@+id/checkBoxthu"
+        android:gravity="center"
+        android:background="@drawable/day_chooser"
+        android:checked="true"
+        android:layout_below="@+id/schdrepeat"
+        android:layout_alignLeft="@+id/checkBoxwed"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F"
+        android:button="@null"
+        android:id="@+id/checkBoxfri"
+        android:gravity="center"
+        android:background="@drawable/day_chooser"
+        android:checked="true"
+        android:layout_below="@+id/schdrepeat"
+        android:layout_alignLeft="@+id/checkBoxthu"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S"
+        android:button="@null"
+        android:id="@+id/checkBoxsat"
+        android:gravity="center"
+        android:background="@drawable/day_chooser"
+        android:checked="true"
+        android:layout_below="@+id/schdrepeat"
+        android:layout_alignLeft="@+id/checkBoxfri"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp" />
+</RelativeLayout>
