@@ -8,7 +8,7 @@ import org.json.JSONObject;
  */
 public class Utils {
 
-    public static final String WEB_URL = "http://www.esphome.16mb.com/";
+    public static final String WEB_URL = "http://www.xyz.com/"; // Replace with your own host
 
     public static JSONObject getObject(String data, JSONObject jsonobj) throws JSONException{
         JSONObject jobj = jsonobj.getJSONObject(data);
